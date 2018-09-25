@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  Functions.cpp
+d:\it\github\georgebrowncollege\conversiontables\sampleproject\functions.cpp(23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\it\github\georgebrowncollege\conversiontables\sampleproject\functions.cpp(48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\it\github\georgebrowncollege\conversiontables\sampleproject\functions.cpp(73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  SampleProject.cpp
+  Generating Code...
+  SampleProject.vcxproj -> D:\IT\Github\GeorgeBrownCollege\ConversionTables\Debug\SampleProject.exe
