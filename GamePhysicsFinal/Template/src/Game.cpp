@@ -107,13 +107,15 @@ void Game::update()
 	m_pPlayer->update();
 
 	m_pIsland->update();
-	Collision::squaredRadiusCheck(m_pPlayer, m_pIsland);
+	//Collision::squaredRadiusCheck(m_pPlayer, m_pIsland);
+	Collision::AABBCheck(m_pPlayer, m_pIsland);
 
 	m_pOcean->update();
 
 	for (Cloud* cloud : m_pClouds) {
 		cloud->update();
-		Collision::squaredRadiusCheck(m_pPlayer, cloud);
+		//Collision::squaredRadiusCheck(m_pPlayer, cloud);
+		Collision::AABBCheck(m_pPlayer, cloud);
 	}
 }
 

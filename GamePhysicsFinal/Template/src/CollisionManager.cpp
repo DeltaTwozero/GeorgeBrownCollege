@@ -50,6 +50,56 @@ bool CollisionManager::squaredRadiusCheck(GameObject * object1, GameObject * obj
 	
 }
 
+bool CollisionManager::AABBCheck(GameObject * object1, GameObject * object2)
+{
+	glm::vec2 P1 = object1->getPosition();
+	glm::vec2 P2 = object2->getPosition();
+
+	int P1width = object1->getWidth();
+	int P1height = object1->getHeight();
+
+	int P2width = object2->getWidth();
+	int P2height = object2->getHeight();
+
+	if (P1.x < P2.x + P2width &&
+		P1.x + P1width > P2.x &&
+		P1.y < P2.y + P2height &&
+		P1.y + P1height > P2.y)
+	{
+		CollisionResponse(object2);
+	}
+
+	return false;
+}
+
+bool CollisionManager::CollisionResponse(GameObject* object)
+{
+	if (!object->getIsColliding()) {
+
+		object->setIsColliding(true);
+
+		switch (object->getType()) {
+		case ISLAND:
+			std::cout << "Collision with Island!" << std::endl;
+			TheSoundManager::Instance()->playSound("yay", 0);
+			break;
+		case CLOUD:
+			std::cout << "Collision with Cloud!" << std::endl;
+			TheSoundManager::Instance()->playSound("thunder", 0);
+			break;
+		case BULLET:
+			break;
+		case ENEMY:
+			break;
+		default:
+			std::cout << "Collision with unknown type!" << std::endl;
+			break;
+		}
+
+		return true;
+	}
+}
+
 CollisionManager::CollisionManager()
 {
 }
